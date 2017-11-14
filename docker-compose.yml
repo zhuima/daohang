@@ -1,0 +1,8 @@
+version: '2'
+services:
+  daohang:
+    image: daohang:latest
+    container_name: daohang
+    restart: always
+    ports:
+      - 18090:8000

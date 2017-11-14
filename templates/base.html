@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    {% block title %}
+    <title>运维内部网址导航</title>
+    {% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'app/image/favicon.ico' %}" sizes="16x16">
+    <link rel="stylesheet" href="{% static 'app/css/base-7f4c8a3613.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/index-4092c51499.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/iconfont-c146519af4.css' %}">
+    <!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script>
+        <![endif]-->
+</head>
+<!-- header部分 -->
+<div class="header container-fluid">
+    <div class="wrapper">
+        <div class="logo fl"><a href="{% url 'index' %}">运维内部网址导航</a></div>
+        <p class="desc hidden-xs hidden-sm hidden-md fr">今天是 {{ today }} {{ weekday }}</p>
+    </div>
+    <form action="http://www.baidu.com/s" method="get" class="search" target="_blank">
+        <input type="text" placeholder="百度一下" name="wd" class="search_txt" autofocus="autofocus">
+        <button type="button" onclick="submit()" class="search_btn"><i class="iconfont icon-search"></i></button>
+    </form>
+</div>
+<!-- 内容部分 -->
+
+{% block content %}
+{% endblock %}
+
+
+<!-- footer部分 -->
+<div class="footer">
+    <p class="info">一群热爱代码,热爱生活的运维小伙伴</p>
+    <img width="120" height="120" src="{% static 'app/image/wechat.jpg' %}" alt="">
+
+</div>
+<!-- 返回顶部 -->
+<div class="back_to_top hide" style="display: none;">
+    <a href="javascript:;" class="iconfont icon-up"></a>
+</div>
+<!-- 导航模板部分 -->
+<script type="text/tpl" id="nav_tpl">
+   <%for (var i=0;i<data.length;i++) {%>
+   <li><a class="nav_item" href="#<%=data[i].gid%>"><%=data[i].title%></a></li>
+   <%}%>
+
+</script>
+<!-- 内容模板部分 -->
+<script type="text/tpl" id="content_tpl">
+   <%for (var i=0;i<data.length;i++) {%>
+   <div class="content_items">
+      <h3 class="title" id="<%=data[i].gid%>"><%=data[i].title%></h3>
+      <ul class="clearfix">
+         <%for (var j=0;j<data[i].list.length;j++) {%>
+         <li class="content_item fl">
+            <a href="<%=data[i].list[j].href%>" target="_blank" class="<%=data[i].list[j].link%>"><%=data[i].list[j].title%></a><br />
+            <span class="text"><%=data[i].list[j].desc%></span>
+        </li>
+        <%}%>
+    </ul>
+</div>
+<%}%>
+
+</script>
+<script src="{% static 'app/js/jquery-feda3bc821.min.js' %}"></script>
+<script src="{% static 'app/js/template-native-e7f003bd4a.js' %}"></script>
+
+<script src="{% static 'app/js/index-cbeda4f642.js' %}"></script>
+</html>
