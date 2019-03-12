@@ -11,3 +11,4 @@
 # manage.py: 14
 Django==1.8.1
 django-suit==0.2.25
+django-widget-tweaks
