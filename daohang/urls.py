@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^signin/', admin.site.urls, name='login'),
     url(r'^$', app_views.index, name='index'),
     url(r'^datas/$', app_views.serialization_data, name='datas'),
+    url(r'^commit/$', app_views.commit, name='commit')
+    # url(r'^commit/$', app_views.CommitView.as_view(), name='commit')
 ]

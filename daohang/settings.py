@@ -1,4 +1,6 @@
 # coding: utf8
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+from django.contrib.messages import constants as message_constants
 """
 Django settings for daohang project.
 
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'widget_tweaks',
 
 ]
 
@@ -60,8 +63,7 @@ ROOT_URLCONF = 'daohang.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,6 +128,12 @@ USE_L10N = False
 
 USE_TZ = True
 
+MESSAGE_TAGS = {
+    message_constants.SUCCESS: 'alert alert-success',
+    message_constants.ERROR: 'alert alert-danger',
+}
+
+
 # suit在admin里设置时间的一个小bug。需要把时间格式指定一下
 DATETIME_FORMAT = 'Y-m-d H:i:s'
 DATE_FORMAT = 'Y-m-d'
@@ -150,7 +158,6 @@ STATICFILES_DIRS = [
 
 # django版本的原因需要添加的
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
@@ -160,7 +167,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 
 SUIT_CONFIG = {
     'ADMIN_NAME': u'导航系统内部管理',
-    'LIST_PER_PAGE': 20,
+    'LIST_PER_PAGE': 10,
     'MENU': ({'label': u'导航管理',
               'app': 'app',
               'icon': 'icon-cog',

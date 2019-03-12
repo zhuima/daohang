@@ -3,9 +3,14 @@
 
 import datetime
 import json
-from django.shortcuts import render
-from django.http import HttpResponse
 
+from django.contrib import messages
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
+from django.views import generic
+
+from app.forms import CommitForm
 from app.models import UrlGroup, UrlInfor
 
 
@@ -53,12 +58,30 @@ def serialization_data(request):
     _datas = []
     for group in _group_lists.all():
         if group.group_set.count() > 0:
-            _group_template = {"title": u"{0}".format(group.group_name), "gid": u"{0}".format(group.gid), "list": []}
+            _group_template = {"title": u"{0}".format(
+                group.group_name), "gid": u"{0}".format(group.gid), "list": []}
             _group = UrlGroup.objects.get(gid=group.gid)
             for k in _group.group_set.all():
-                _url_template = {"title": u"{0}".format(k.url_name), "href": "{0}".format(k.url_path),
-                                 "desc": u"{0}".format(k.url_desc)}
-                _group_template["list"].extend([_url_template])
+                if k.url_status:
+                    _url_template = {"title": u"{0}".format(k.url_name), "href": "{0}".format(k.url_path),
+                                    "desc": u"{0}".format(k.url_desc)}
+                    _group_template["list"].extend([_url_template])
             _datas.extend([_group_template])
     result = json.dumps(_datas)
     return HttpResponse(result)
+
+
+def commit(request):
+    today = datetime.date.today()
+    weekday = get_week_day(datetime.datetime.now())
+    if request.method == 'POST':
+        form = CommitForm(request.POST)
+        if form.is_valid():
+            urlinfor = form.save(commit=False)
+            urlinfor.save()
+            print(urlinfor)
+            messages.success(request, "提交成功! 审核期1个工作日。")
+            return HttpResponseRedirect(reverse('commit'))
+    else:
+        form = CommitForm()
+    return render(request, 'commit.html', {'form': form, "today": today, "weekday": weekday})

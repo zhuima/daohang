@@ -17,7 +17,7 @@ OP内部导航系统
 
 ```cpp
 0、git clone https://github.com/zhuima/daohang.git
-1、cd daohang && pip install -r requirements.txt
+1、cd daohang && pipenv install && pipenv shell
 2、python manage.py runserver 0.0.0.0:8080
 3、http://ip:8080
 ```

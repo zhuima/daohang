@@ -1,14 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     {% block title %}
-    <title>运维内部网址导航</title>
+    <title>DK内部网址导航</title>
     {% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="icon" href="{% static 'app/image/favicon.ico' %}" sizes="16x16">
     <link rel="stylesheet" href="{% static 'app/css/base-7f4c8a3613.css' %}">
     <link rel="stylesheet" href="{% static 'app/css/index-4092c51499.css' %}">
@@ -16,12 +18,38 @@
     <!--[if lt IE 9]>
         <script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script>
         <![endif]-->
+
+    {% block head %}
+    {% endblock %}
+
+
+<style>
+.dkbutton {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #4479BA;
+    color: #FFF;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+</style>
+
 </head>
 <!-- header部分 -->
 <div class="header container-fluid">
     <div class="wrapper">
-        <div class="logo fl"><a href="{% url 'index' %}">运维内部网址导航</a></div>
-        <p class="desc hidden-xs hidden-sm hidden-md fr">今天是 {{ today }} {{ weekday }}</p>
+        <div class="logo fl"><a href="{% url 'index' %}">DK内部网址导航</a></div>
+        <p class="desc hidden-xs hidden-sm hidden-md fr">今天是 {{ today }} {{ weekday }}   
+            <a class="dkbutton"  href="{% url 'commit' %}" target="_blank">提交链接</a>
+            <!-- <a class="dkbutton"  href="{% url 'commit' %}" target="_blank">统一登录</a> -->
+
+        </p>
     </div>
     <form action="http://www.baidu.com/s" method="get" class="search" target="_blank">
         <input type="text" placeholder="百度一下" name="wd" class="search_txt" autofocus="autofocus">
@@ -36,8 +64,8 @@
 
 <!-- footer部分 -->
 <div class="footer">
-    <p class="info">一群热爱代码,热爱生活的运维小伙伴</p>
-    <img width="120" height="120" src="{% static 'app/image/wechat.jpg' %}" alt="">
+    <p class="info">一群热爱代码,热爱生活的小伙伴</p>
+    <!-- <img width="120" height="120" src="{% static 'app/image/wechat.jpg' %}" alt=""> -->
 
 </div>
 <!-- 返回顶部 -->
@@ -72,4 +100,5 @@
 <script src="{% static 'app/js/template-native-e7f003bd4a.js' %}"></script>
 
 <script src="{% static 'app/js/index-cbeda4f642.js' %}"></script>
+
 </html>
