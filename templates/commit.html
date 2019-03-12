@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+        </li>
+        {% endfor %}
+</ul>
+{% endif %}
+<div class="wrapper">
+
+    <h3 align="center"></h3>
+
+    <div id="first-content">
+
+        <div id="center-box-wrapper">
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field }}
+                {% endfor %}
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in form.non_field_errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+
+                    {% if form.is_bound %}
+                    {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" placeholder=field.label %}
+                    {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {% render_field field class="form-control is-valid" placeholder=field.label %}
+                    {% endif %}
+                    {% else %}
+                    {% render_field field class="form-control" placeholder=field.label %}
+                    {% endif %}
+
+                    {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="push"></div>
+
+</div>
+{% endblock %}
