@@ -24,7 +24,7 @@ class UrlGroupModelAdmin(admin.ModelAdmin):
 
 class UrlInforModelAdmin(admin.ModelAdmin):
     # 显示在管理页面的字段
-    list_display = ['url_name', 'url_path', 'url_desc', 'url_group', 'timestamp']
+    list_display = ['url_name', 'url_path', 'url_desc', 'url_group', 'url_status', 'timestamp']
     # 可以修改内容的链接
     # list_display_links = ['url_name']
     # 可以查询的字段，显示搜索框

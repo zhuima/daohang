@@ -31,7 +31,7 @@ class UrlInfor(models.Model):
     url_name = models.CharField(u'链接名称', max_length=100)
     url_path = models.CharField(u'链接URL', max_length=200)
     url_desc = models.TextField(u'链接描述', max_length=200)
-    url_status = models.BooleanField(u'启用状态', default=False)
+    url_status = models.BooleanField(u'状态', default=False)
     url_group = models.ForeignKey(
         UrlGroup, verbose_name=u'分类名称', related_name='group_set')
     timestamp = models.DateTimeField(u'创建时间', default=tz.now)
