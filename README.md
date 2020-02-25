@@ -1,8 +1,9 @@
 OP内部导航系统
 ============
 
-[![Python 2.6](https://img.shields.io/badge/python-2.7-yellow.svg)](https://www.python.org/)
-[![](https://img.shields.io/badge/django-1.8.0-green.svg)](https://www.djangoproject.com/)
+[![Python 3.5](https://img.shields.io/badge/python-3.5-yellow.svg)](https://www.python.org/)
+[![](https://img.shields.io/badge/django-2.2.4-green.svg)](https://www.djangoproject.com/)
+[![](https://img.shields.io/badge/simpleui-3.9-green.svg)](https://newpanjing.github.io/simpleui/)
 
 
 
