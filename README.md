@@ -43,7 +43,7 @@ docker-compose up -d
 
 ### 四、TODO
 
-- [ ] vue重写前端展示页面和后台管理页面
+- [x] vue重写前端展示页面和后台管理页面
 - [ ] django的RESTful实现
 - [ ] 分离脚本和views
 
@@ -52,7 +52,7 @@ docker-compose up -d
     为了方便大家预览效果，特定把db.sqlite3也上传到了代码仓库，
     后台登陆地址: http://ip:port/signin
     后台管理账号密码: 
-    admin:admin
+    admin:zhuima
 
 
 ### 六、效果
@@ -72,3 +72,5 @@ docker-compose up -d
 [caibaojian站点](http://caibaojian.com/daohang)
 
 [duanlijie站点](http://duanlijie.com/)
+
+[simpleui](https://newpanjing.github.io/simpleui/QUICK.html)

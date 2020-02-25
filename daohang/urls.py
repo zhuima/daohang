@@ -17,11 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from app import views as app_views
 
+admin.site.site_title = "daohang"
+admin.site.site_header = "运维内部导航平台"
+
 
 urlpatterns = [
-    url(r'^signin/', admin.site.urls, name='login'),
-    url(r'^$', app_views.index, name='index'),
-    url(r'^datas/$', app_views.serialization_data, name='datas'),
-    url(r'^commit/$', app_views.commit, name='commit')
+    url(r"^signin/", admin.site.urls, name="login"),
+    url(r"^$", app_views.index, name="index"),
+    url(r"^datas/$", app_views.serialization_data, name="datas"),
+    url(r"^commit/$", app_views.commit, name="commit")
     # url(r'^commit/$', app_views.CommitView.as_view(), name='commit')
 ]
