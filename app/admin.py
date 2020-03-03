@@ -2,6 +2,7 @@
 
 from django.contrib import admin
 from .models import UrlGroup, UrlInfor
+from django.utils.html import format_html
 
 # Register your models here.
 
@@ -24,7 +25,9 @@ class UrlGroupModelAdmin(admin.ModelAdmin):
         model = UrlGroup
 
 
+
 class UrlInforModelAdmin(admin.ModelAdmin):
+
     # 显示在管理页面的字段
     list_display = (
         "url_name",
@@ -39,7 +42,7 @@ class UrlInforModelAdmin(admin.ModelAdmin):
     # 可以查询的字段，显示搜索框
     search_fields = ("url_name",)
     # 可直接编辑的字段（但是不能同时可连接可编发来）
-    list_editable = ("url_name",)
+    list_editable = ("url_status",)
     # 定制过滤器
     list_filter = ("url_name",)
 
@@ -48,6 +51,7 @@ class UrlInforModelAdmin(admin.ModelAdmin):
     class Meta:
         model = UrlInfor
 
+ 
 
 admin.site.register(UrlGroup, UrlGroupModelAdmin)
 admin.site.register(UrlInfor, UrlInforModelAdmin)
