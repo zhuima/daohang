@@ -7,7 +7,7 @@ verify_ssl = true
 autopep8 = "*"
 
 [packages]
-Django = "==1.8.1"
+Django = "==3.2.8"
 django-suit = "==0.2.20"
 django-widget-tweaks = "*"
 
