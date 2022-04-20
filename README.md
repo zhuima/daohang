@@ -25,21 +25,14 @@ OP内部导航系统
 
 ### 三、docker支持
 
-> 也可以放到自己的私有仓库上去
+- 借助github workflow的强大功能，增加了docker自动构建，可以直接`docker pull`
 
-    推荐使用harbor
-
-> 本地使用
-
-    生成的image名称要和docker-compose.yml中的文件对应起来
-
-> 具体使用
+[狠狠的戳我👉](https://github.com/zhuima/daohang/pkgs/container/daohang)
 
 
-```cpp
-docker build -t daohang .
-docker-compose up -d
-```
+- 或者直接使用本仓库的`docker-compose.yml`文件启动,默认使用latest版本
+
+`docker-composer up -d`
 
 
 ### 四、TODO
