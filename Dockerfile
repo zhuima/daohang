@@ -1,5 +1,5 @@
 # 基础镜像
-FROM python:3.5
+FROM python:3.7.2
 
 # 维护者信息
 MAINTAINER zhuima <zhuima314@gmail.com>
