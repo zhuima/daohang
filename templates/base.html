@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     {% block title %}
-    <title>运维内部网址导航</title>
+    <title>网址导航</title>
     {% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,15 +38,28 @@
     padding: 8px 12px;
     text-decoration: none;
 }
+#footer {
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: #333;
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
 </style>
 
 </head>
 <!-- header部分 -->
 <div class="header container-fluid">
     <div class="wrapper">
-        <div class="logo fl"><a href="{% url 'index' %}">运维内部网址导航</a></div>
-        <p class="desc hidden-xs hidden-sm hidden-md fr">今天是 {{ today }} {{ weekday }}   
-            <a class="dkbutton"  href="{% url 'commit' %}" target="_blank">提交链接</a>
+        <div class="logo fl"><a href="{% url 'index' %}">网址导航</a></div>
+        <p class="desc hidden-xs hidden-sm hidden-md fr"> {{today}} {{ weekday }}   
+            <br><br><a class="dkbutton"  href="{% url 'commit' %}" target="_blank">提交链接</a>
             <!-- <a class="dkbutton"  href="{% url 'commit' %}" target="_blank">统一登录</a> -->
 
         </p>
@@ -63,10 +76,8 @@
 
 
 <!-- footer部分 -->
-<div class="footer">
-    <p class="info">一群热爱代码,热爱生活的小伙伴</p>
-    <!-- <img width="120" height="120" src="{% static 'app/image/wechat.jpg' %}" alt=""> -->
-
+<div class="footer1">
+    <div id="footer">一群热爱代码,热爱生活的小伙伴</div>
 </div>
 <!-- 返回顶部 -->
 <div class="back_to_top hide" style="display: none;">

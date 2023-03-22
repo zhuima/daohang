@@ -1,4 +1,4 @@
-OP内部导航系统
+内部导航系统
 ============
 
 [![Python 3.5](https://img.shields.io/badge/python-3.5-yellow.svg)](https://www.python.org/)
@@ -9,7 +9,7 @@ OP内部导航系统
 
 ###  一、关于daohang
 
-- 运维内部常用管理工具网址索引页
+- 内部常用管理工具网址索引页
 - 用以统计常用地址
 
 
@@ -44,7 +44,7 @@ OP内部导航系统
 ### 五、说明
 
     为了方便大家预览效果，特定把db.sqlite3也上传到了代码仓库，
-    后台登陆地址: http://ip:port/signin
+    后台登录地址: http://ip:port/signin
     后台管理账号密码: 
     admin:zhuima
 

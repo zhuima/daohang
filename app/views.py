@@ -20,7 +20,7 @@ def index(request):
     """
     前端展示文件入口
     """
-    today = datetime.date.today()
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
     weekday = get_week_day(datetime.datetime.now())
     return render(request, "index.html", {"today": today, "weekday": weekday})
 
@@ -80,7 +80,7 @@ def serialization_data(request):
 
 
 def commit(request):
-    today = datetime.date.today()
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
     weekday = get_week_day(datetime.datetime.now())
     if request.method == "POST":
         form = CommitForm(request.POST)

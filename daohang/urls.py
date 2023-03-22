@@ -17,8 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from app import views as app_views
 
-admin.site.site_title = "daohang"
-admin.site.site_header = "运维内部导航平台"
+admin.site.site_title = "后台管理"
+admin.site.site_header = "导航平台"
 
 
 urlpatterns = [

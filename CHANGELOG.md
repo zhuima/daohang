@@ -36,7 +36,7 @@
 
 ### 修复
 
-* 后台登陆url修改singin != signin
+* 后台登录url修改singin != signin
 * 更新README.md
 * 修改Dockerfile中端口和docker-compose.yml中端口为8080
 
